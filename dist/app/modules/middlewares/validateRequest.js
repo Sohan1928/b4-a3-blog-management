@@ -12,21 +12,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const cors_1 = __importDefault(require("cors"));
-const express_1 = __importDefault(require("express"));
-const routes_1 = __importDefault(require("./app/routes"));
-const app = (0, express_1.default)();
-//parsers
-app.use(express_1.default.json());
-app.use((0, cors_1.default)());
-// // application routes
-app.use("/api", routes_1.default);
-const test = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const a = "Hello Developer!!";
-    res.send(a);
-});
-app.get("/", test);
-// app.use(globalErrorHandler);
-// //Not Found
-// app.use(notFound);
-exports.default = app;
+const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
+const validateRequest = (schema) => {
+    return (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+        yield schema.parseAsync({
+            body: req.body,
+        });
+        next();
+    }));
+};
+exports.default = validateRequest;
