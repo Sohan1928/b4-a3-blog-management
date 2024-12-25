@@ -1,14 +1,32 @@
-import express from "express";
-import validateRequest from "../middlewares/validateRequest";
-import { UserValidation } from "./user.validation";
-import { UserControllers } from "./user.controller";
+// import express from "express";
+// import { UserValidation } from "./user.validation";
+// import { UserControllers } from "./user.controller";
+// import validateRequest from "../../middlewares/validateRequest";
+// import auth from "../../middlewares/auth";
+// import { USER_ROLE } from "./user.constants";
 
-const router = express.Router();
+// const router = express.Router();
 
-router.post(
-  "/auth/register",
-  validateRequest(UserValidation.createUserValidationSchema),
-  UserControllers.createStudent
-);
+// router.post(
+//   "/register",
+//   validateRequest(UserValidation.registerUserValidationSchema),
+//   UserControllers.registerUser
+// );
 
-export const UserRoutes = router;
+// router.get("/register/:userId", UserControllers.getSingleUser);
+
+// router.get("/register", UserControllers.getAllUsers);
+
+// router.patch(
+//   "/register/:userId",
+//   validateRequest(UserValidation.updateUserValidationSchema),
+//   UserControllers.updateUser
+// );
+
+// // router.post(
+// //   "/login",
+// //   validateRequest(UserValidation.loginUserValidationSchema),
+// //   UserControllers.loginUser
+// // );
+
+// export const UserRoutes = router;
