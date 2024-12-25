@@ -1,13 +1,27 @@
-import mongoose from "mongoose";
+import { model, Schema } from "mongoose";
+import { IBlog } from "./blog.interface";
 
-const blogSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  content: { type: String, required: true },
-  author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  isPublished: { type: Boolean, default: true },
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now },
+const blogSchema = new Schema<IBlog>(
+  {
+    title: { type: String, required: [true, "Title is required!"] },
+    content: { type: String, required: [true, "Content is required!"] },
+    author: { type: Schema.Types.ObjectId, ref: "User" },
+    isPublished: { type: Boolean, default: true },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+// transform exclude
+blogSchema.set("toJSON", {
+  transform: (doc, ret) => {
+    delete ret.__v;
+    delete ret.isPublished;
+    delete ret.createdAt;
+    delete ret.updatedAt;
+    return ret;
+  },
 });
 
-const Blog = mongoose.model("Blog", blogSchema);
-export default Blog;
+export const blog = model<IBlog>("blog", blogSchema);
