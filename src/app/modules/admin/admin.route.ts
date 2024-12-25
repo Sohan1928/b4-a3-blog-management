@@ -17,4 +17,4 @@ router.delete(
   AdminControllers.deleteBlogByAdmin
 );
 
-export const adminRouter = router;
+export const adminRoutes = router;
