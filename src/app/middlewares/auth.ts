@@ -28,7 +28,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
     const { role, email } = decoded;
 
     // checking if the user is exist
-    const user = await User.isUserExistsById(email);
+    const user = await User.isUserExistsByEmail(email);
 
     if (!user) {
       throw new AppError(StatusCodes.NOT_FOUND, "This user is not exist!");

@@ -18,7 +18,7 @@ const registerUserIntoDB = async (payload: IRegisterUser) => {
 
 const loginUser = async (payload: TLoginUser) => {
   // checking if the user is exist
-  const user = await User.isUserExistsById(payload.email);
+  const user = await User.isUserExistsByEmail(payload.email);
   // console.log("user found", user);
   if (!user) {
     throw new AppError(StatusCodes.UNAUTHORIZED, "Invalid Credentials");

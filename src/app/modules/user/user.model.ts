@@ -59,7 +59,7 @@ userSchema.post("save", function (doc, next) {
   next();
 });
 
-userSchema.statics.isUserExistsById = async function (email: string) {
+userSchema.statics.isUserExistsByEmail = async function (email: string) {
   return await User.findOne({ email }).select("+password");
 };
 

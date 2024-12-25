@@ -13,7 +13,7 @@ export interface IUser extends Document {
 
 export interface UserModel extends Model<IUser> {
   //instance methods for checking if the user exist
-  isUserExistsById(id: string): Promise<IUser>;
+  isUserExistsByEmail(email: string): Promise<IUser>;
   //instance methods for checking if passwords are matched
   isPasswordMatched(
     plainTextPassword: string,

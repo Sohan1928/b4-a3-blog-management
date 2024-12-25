@@ -24,4 +24,4 @@ blogSchema.set("toJSON", {
   },
 });
 
-export const blog = model<IBlog>("blog", blogSchema);
+export const Blog = model<IBlog>("blog", blogSchema);
