@@ -21,7 +21,7 @@ router.patch(
   BlogControllers.updateBlog
 );
 
-router.delete("/:", auth(USER_ROLE.user), BlogControllers.deleteBlog);
+router.delete("/:id", auth(USER_ROLE.user), BlogControllers.deleteBlog);
 
 router.get("/", BlogControllers.getAllBlogs);
 

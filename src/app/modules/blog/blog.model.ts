@@ -5,7 +5,10 @@ const blogSchema = new Schema<IBlog>(
   {
     title: { type: String, required: [true, "Title is required!"] },
     content: { type: String, required: [true, "Content is required!"] },
-    author: { type: Schema.Types.ObjectId, ref: "User" },
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
     isPublished: { type: Boolean, default: true },
   },
   {

@@ -1,11 +1,9 @@
-import bcrypt from "bcrypt";
-import { IRegisterUser, TLoginUser } from "./auth.interface";
+import { IRegisterUser, ILoginUser } from "./auth.interface";
 import { User } from "../user/user.model";
 import AppError from "../../error/AppError";
 import { StatusCodes } from "http-status-codes";
 import config from "../../config";
 import { createToken } from "./auth.utils";
-import { JwtPayload } from "jsonwebtoken";
 
 const registerUserIntoDB = async (payload: IRegisterUser) => {
   const result = await User.create(payload);
@@ -16,7 +14,7 @@ const registerUserIntoDB = async (payload: IRegisterUser) => {
   };
 };
 
-const loginUser = async (payload: TLoginUser) => {
+const loginUser = async (payload: ILoginUser) => {
   // checking if the user is exist
   const user = await User.isUserExistsByEmail(payload.email);
   // console.log("user found", user);

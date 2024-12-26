@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const userValidationSchema = z.object({
   name: z
-    .string({ invalid_type_error: "name must be string" })
+    .string({ required_error: "name must be string" })
     .nonempty("name can not be empty"),
   email: z
     .string({
@@ -18,6 +18,4 @@ const userValidationSchema = z.object({
   isBlocked: z.boolean().optional().default(false),
 });
 
-export const UserValidations = {
-  userValidationSchema,
-};
+export default userValidationSchema;

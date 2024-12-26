@@ -2,17 +2,18 @@ import { StatusCodes } from "http-status-codes";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import AppError from "../error/AppError";
 import { User } from "../modules/user/user.model";
-import { TUserRole } from "../modules/user/user.interface";
+import { IUserRole } from "../modules/user/user.interface";
 import catchAsync from "../utils/catchAsync";
 import { NextFunction, Request, Response } from "express";
 import config from "../config";
 
-const auth = (...requiredRoles: TUserRole[]) => {
+const auth = (...requiredRoles: IUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const authToken = req.headers.authorization;
+    // console.log(authToken);
 
     // checking if the token is missing
-    if (!authToken || authToken.startsWith("Bearer")) {
+    if (!authToken || !authToken.startsWith("Bearer")) {
       throw new AppError(StatusCodes.UNAUTHORIZED, "You are not authorized!");
     }
 
@@ -38,7 +39,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
     const userStatus = user?.isBlocked;
 
     if (userStatus === true) {
-      throw new AppError(StatusCodes.FORBIDDEN, "This user is blocked ! !");
+      throw new AppError(StatusCodes.UNAUTHORIZED, "You are not authorized");
     }
 
     req.user = decoded as JwtPayload;

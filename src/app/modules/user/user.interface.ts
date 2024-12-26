@@ -1,7 +1,7 @@
-import { Document, Model, Types } from "mongoose";
+import { Model } from "mongoose";
 import { USER_ROLE } from "./user.constants";
 
-export interface IUser extends Document {
+export interface IUser {
   [a: string]: any;
   name: string;
   email: string;
@@ -25,4 +25,4 @@ export interface UserModel extends Model<IUser> {
   ): boolean;
 }
 
-export type TUserRole = keyof typeof USER_ROLE;
+export type IUserRole = keyof typeof USER_ROLE;

@@ -17,18 +17,15 @@ const userSchema = new Schema<IUser, UserModel>(
     password: {
       type: String,
       required: [true, "password is required"],
-      select: false,
     },
     role: {
       type: String,
       enum: ["admin", "user"],
       default: "user",
-      optional: true,
     },
     isBlocked: {
       type: Boolean,
       default: false,
-      optional: true,
     },
   },
   {

@@ -4,7 +4,7 @@ export interface IRegisterUser {
   password: string;
 }
 
-export type TLoginUser = {
+export interface ILoginUser {
   email: string;
   password: string;
-};
+}
