@@ -79,7 +79,7 @@ A robust backend for a blogging platform with secure authentication, role-based 
 
 ### **Failure (401)**
 
-````json
+```json
 {
   "success": false,
   "message": "Invalid credentials",
@@ -89,22 +89,22 @@ A robust backend for a blogging platform with secure authentication, role-based 
   },
   "stack": "error stack"
 }
+```
 
-## **Endpoint**
-`POST /api/auth/login`
+---
 
-## **Description**
-Authenticates a user with their email and password and generates a JWT token.
+- `POST /api/auth/register`: Login user.
 
 ---
 
 ## **Request Body**
+
 ```json
 {
   "email": "john@example.com",
   "password": "securePassword"
 }
-````
+```
 
 ---
 
