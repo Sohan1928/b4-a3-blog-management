@@ -45,59 +45,20 @@ A robust backend for a blogging platform with secure authentication, role-based 
 ### Authentication
 
 - `POST /api/auth/register`: Register a new user.
-  `Request Body:`
 
-`{`
-`"name": "John Doe",`
-`"email": "john@example.com",`
-`"password": "securePassword"`
-`}`
-`Response:`
+- `Request Body:`
 
-`Success (201):`
-`{`
-`"success": true,`
-`"message": "User registered successfully",`
-`"statusCode": 201,`
-`"data": {`
-`"\_id": "string",`
-`"name": "string",`
-`"email": "string"`
-`}`
+-`{` -`"name": "John Doe",` -`"email": "john@example.com",` -`"password": "securePassword"` -`}` -`Response:`
 
-`Failure (400):`
-`{`
-`"success": false,`
-`"message": "Validation error",`
-`"statusCode": 400,`
-`"error": { "details" },`
-`"stack": "error stack"`
-`}`
+-`Success (201):` -`{` -`"success": true,` -`"message": "User registered successfully",` -`"statusCode": 201,` -`"data": {` -`"\_id": "string",` -`"name": "string",` -`"email": "string"` -`}`
 
-- `POST /api/auth/login`: Authenticate and receive a JWT token.
-  `{`
-  `"email": "john@example.com",`
-  `"password": "securePassword"`
-  `}`
-  `Response:`
+-`Failure (400):` -`{` -`"success": false,` -`"message": "Validation error",` -`"statusCode": 400,` -`"error": { "details" },` -`"stack": "error stack"` -`}`
 
-`Success (200):`
-`{`
-`"success": true,`
-`"message": "User login successfully",`
-`"statusCode": 200,`
-`"data": {`
-`"token": "string",`
-`}`
+- `POST /api/auth/login`: Authenticate and receive a JWT token. -`{` -`"email": "john@example.com",` -`"password": "securePassword"` -`}` -`Response:`
 
-`Failure (401):`
-`{`
-`"success": false,`
-`"message": "Invalid credentials",`
-`"statusCode": 401,`
-`"error": { "details" },`
-`"stack": "error stack"`
-`}`
+-`Success (200):` -`{` -`"success": true,` -`"message": "User login successfully",` -`"statusCode": 200,` -`"data": {` -`"token": "string",` -`}`
+
+-`Failure (401):` -`{` -`"success": false,` -`"message": "Invalid credentials",` -`"statusCode": 401,` -`"error": { "details" },` -`"stack": "error stack"` -`}`
 
 ### Blog Operations
 
