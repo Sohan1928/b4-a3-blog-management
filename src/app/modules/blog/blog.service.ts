@@ -30,6 +30,8 @@ const createBlog = async (req: Request, blog: IBlog) => {
 
 const updateBlog = async (req: Request, id: string, blog: Partial<IBlog>) => {
   const { email } = req.user;
+
+  // checking if the blog is exist!
   const blogExists = await Blog.findById(id).populate("author");
   if (!blogExists) {
     throw new AppError(StatusCodes.NOT_FOUND, "Blog not found!");
@@ -57,6 +59,8 @@ const updateBlog = async (req: Request, id: string, blog: Partial<IBlog>) => {
 
 const deleteBlog = async (req: Request, id: string) => {
   const { email } = req.user;
+
+  // checking if the blog is exist!
   const blogExists = await Blog.findById(id).populate("author");
   if (!blogExists) {
     throw new AppError(StatusCodes.NOT_FOUND, "Blog not found!");

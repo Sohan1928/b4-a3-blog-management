@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 import { BlogRoutes } from "../modules/blog/blog.route";
 import { adminRoutes } from "../modules/admin/admin.route";
 import AuthRoutes from "../modules/Auth/auth.route";

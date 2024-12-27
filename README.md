@@ -2,6 +2,8 @@
 
 A robust backend for a blogging platform with secure authentication, role-based access control, and a public API for managing blogs.
 
+## Live Url: https://b4-a3-blog-management.vercel.app
+
 ## Features
 
 ### User Roles

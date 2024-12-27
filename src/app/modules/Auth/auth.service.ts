@@ -25,10 +25,7 @@ const loginUser = async (payload: ILoginUser) => {
   // checking if the user is already blocked
   const isBlocked = user?.isBlocked;
   if (isBlocked) {
-    throw new AppError(
-      StatusCodes.UNAUTHORIZED,
-      "This user is already blocked!"
-    );
+    throw new AppError(StatusCodes.UNAUTHORIZED, "You are not authorized!");
   }
 
   // checking if the password is match
